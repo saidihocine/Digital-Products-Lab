@@ -30,7 +30,7 @@
     "postcss": "^8.5.33",
     "prettier": "^3.3.3",
     "tailwindcss": "^3.4.19",
-    "typescript": "^5.6.3"
+    "typescript": "^7.0.2"
   },
   "lint-staged": {
     "*.{js,jsx,ts,tsx,json,md}": [
