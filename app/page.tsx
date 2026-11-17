@@ -1,72 +1,113 @@
 import Link from 'next/link';
-import { ArrowLeft } from 'lucide-react';
+import { ArrowLeft, Check, Leaf } from 'lucide-react';
 import { HERO_IMAGE, PRODUCTS } from '@/data/products';
 import { ProductCard } from '@/components/ProductCard';
 
 export default function HomePage() {
   return (
-    <main dir="rtl" className="no-print bg-[#F8F7F4] text-[#1C1C1A]">
-      <section className="border-b border-[#E5E2D9]">
-        <div className="mx-auto grid max-w-[1200px] grid-cols-1 items-stretch gap-12 px-6 py-16 lg:grid-cols-12 lg:gap-16 lg:py-24">
-          <div className="flex flex-col justify-center lg:col-span-6">
-            <p className="text-xs font-medium tracking-wide text-[#78756C]">
-              مختبر الأدوات الورقية · مقاس A4 قياسي · 300 DPI
-            </p>
-            <h1 className="mt-5 text-3xl font-semibold leading-[1.38] tracking-tight text-[#1C1C1A] sm:text-4xl lg:text-[2.85rem]">
-              تنظيم هادئ على ورق حقيقي، بعيداً عن ضجيج الشاشات.
-            </h1>
-            <p className="mt-6 max-w-lg text-base leading-[1.9] text-[#575650]">
-              ثلاثة قوالب رقمية مصممة بعناية لتمنح يومك وأسبوعك وعاداتك وضوحاً
-              بصرياً مريحاً للعين، ومعايرة للطباعة المنزلية بدقة عالية وتوفير
-              للحبر.
-            </p>
-            <div className="mt-10 flex flex-wrap items-center gap-5">
-              <a
-                href="#products"
-                className="inline-flex min-h-[46px] items-center gap-2.5 whitespace-nowrap rounded-lg border border-[#1C1C1A] bg-[#1C1C1A] px-6 py-3 text-sm font-medium text-[#FAF9F6] transition-colors duration-200 hover:bg-[#2F2F2B]"
-              >
-                <span>استعرض القوالب الثلاثة</span>
-                <ArrowLeft className="h-4 w-4 shrink-0" />
-              </a>
-              <Link
-                href="/printing-guide"
-                className="inline-flex min-h-[46px] items-center whitespace-nowrap px-2 py-2 text-sm font-medium text-[#575650] underline decoration-[#C7C2B6] underline-offset-8"
-              >
-                تعليمات الطباعة المنزلية
-              </Link>
-            </div>
+    <main
+      dir="rtl"
+      className="no-print min-h-screen bg-[#F9F8F5] text-[#252923]"
+    >
+      <header className="border-b border-[#E8E7E0]">
+        <nav
+          className="mx-auto flex max-w-7xl items-center justify-between px-5 py-5 sm:px-8"
+          aria-label="التنقل الرئيسي"
+        >
+          <Link
+            href="/"
+            className="flex items-center gap-2.5 text-sm font-semibold tracking-tight"
+          >
+            <span className="flex h-9 w-9 items-center justify-center rounded-full bg-[#E9EDE5] text-[#52634F]">
+              <Leaf className="h-4 w-4" />
+            </span>
+            مساحة ورق
+          </Link>
+          <a
+            href="#products"
+            className="text-sm text-[#686D64] transition-colors hover:text-[#252923]"
+          >
+            تصفّح القوالب <span aria-hidden="true">←</span>
+          </a>
+        </nav>
+      </header>
+
+      <section className="mx-auto grid max-w-7xl items-center gap-12 px-5 pb-20 pt-12 sm:px-8 sm:pb-28 sm:pt-16 lg:grid-cols-2 lg:gap-20 lg:py-24">
+        <div className="max-w-xl">
+          <p className="inline-flex items-center gap-2 rounded-full border border-[#E1E5DB] bg-white/70 px-3.5 py-2 text-xs font-medium text-[#65715F]">
+            <span className="h-1.5 w-1.5 rounded-full bg-[#82917A]" /> أدوات
+            ورقية للحياة اليومية
+          </p>
+          <h1 className="mt-7 text-[2.55rem] font-medium leading-[1.35] tracking-tight sm:text-5xl lg:text-[3.65rem]">
+            مساحة أهدأ،
+            <br />
+            <span className="text-[#788771]">ليومٍ أوضح.</span>
+          </h1>
+          <p className="mt-6 max-w-lg text-base leading-8 text-[#6B7068] sm:text-lg sm:leading-9">
+            قوالب بسيطة تمنح أفكارك مكاناً على الورق. خطّط أسبوعك، دوّن يومك، واحتفِ
+            بخطواتك الصغيرة — على مهل.
+          </p>
+          <a
+            href="#products"
+            className="mt-9 inline-flex min-h-12 items-center gap-3 rounded-full bg-[#30382F] px-6 text-sm font-medium text-white transition-colors hover:bg-[#465143] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#52634F]"
+          >
+            اكتشف القوالب <ArrowLeft className="h-4 w-4" />
+          </a>
+          <div className="mt-10 flex flex-wrap gap-x-6 gap-y-3 text-xs text-[#777C73]">
+            <span className="inline-flex items-center gap-2">
+              <Check className="h-3.5 w-3.5 text-[#788771]" /> تصميم واضح ومريح
+            </span>
+            <span className="inline-flex items-center gap-2">
+              <Check className="h-3.5 w-3.5 text-[#788771]" /> جاهز للطباعة
+              المنزلية
+            </span>
           </div>
-          <div className="lg:col-span-6">
-            <div className="relative aspect-[16/11] w-full overflow-hidden rounded-2xl border border-[#E5E2D9] bg-[#EFECE5] lg:h-full lg:min-h-[400px]">
-              <img
-                src={HERO_IMAGE}
-                alt="مكتب هادئ يضم دفاتر تخطيط وأوراق ملاحظات منظمة"
-                referrerPolicy="no-referrer"
-                className="h-full w-full object-cover"
-              />
+        </div>
+        <div className="relative mx-auto w-full max-w-xl lg:mr-auto lg:ml-0">
+          <div
+            className="absolute -inset-3 rounded-[2rem] border border-[#E9E8E0]"
+            aria-hidden="true"
+          />
+          <div className="relative aspect-[5/4] overflow-hidden rounded-[1.7rem] bg-[#E8E6DF]">
+            <img
+              src={HERO_IMAGE}
+              alt="دفتر وأوراق تخطيط على مكتب مضاء بضوء طبيعي"
+              fetchPriority="high"
+              className="h-full w-full object-cover"
+            />
+            <div className="absolute bottom-4 right-4 rounded-xl border border-white/50 bg-white/90 px-4 py-3 shadow-sm backdrop-blur-sm sm:bottom-6 sm:right-6">
+              <p className="text-xs text-[#777C73]">ابدأ ببساطة</p>
+              <p className="mt-1 text-sm font-medium text-[#30382F]">
+                صفحة واحدة في كل مرة
+              </p>
             </div>
           </div>
         </div>
       </section>
 
-      <section
-        id="products"
-        className="mx-auto max-w-[1200px] px-6 py-24 lg:py-28"
-      >
-        <div className="flex flex-col justify-between gap-4 border-b border-[#E5E2D9] pb-8 md:flex-row md:items-end">
-          <div>
-            <p className="text-xs font-medium text-[#78756C]">
-              المجموعة المختارة
+      <section id="products" className="border-t border-[#E8E7E0] bg-white/60">
+        <div className="mx-auto max-w-7xl px-5 py-16 sm:px-8 sm:py-24">
+          <div className="mb-10 flex flex-col gap-4 sm:mb-12 sm:flex-row sm:items-end sm:justify-between">
+            <div>
+              <p className="text-xs font-medium tracking-wide text-[#788771]">
+                مجموعة البداية · ٠٣ قوالب
+              </p>
+              <h2 className="mt-3 text-2xl font-medium tracking-tight sm:text-3xl">
+                أدوات صغيرة، فرقٌ لطيف
+              </h2>
+            </div>
+            <p className="max-w-sm text-sm leading-7 text-[#777C73]">
+              اختر ما يناسب إيقاعك اليوم، واطبعه متى احتجت إليه.
             </p>
-            <h2 className="mt-2 text-2xl font-semibold tracking-tight text-[#1C1C1A] sm:text-3xl">
-              ثلاثة قوالب لكل ما تحتاجه يومياً
-            </h2>
           </div>
-        </div>
-        <div className="mt-12 grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3 lg:gap-10">
-          {PRODUCTS.map((product) => (
-            <ProductCard key={product.slug} product={product} />
-          ))}
+          <div className="grid grid-cols-1 gap-5 md:grid-cols-2 lg:grid-cols-3 lg:gap-6">
+            {PRODUCTS.slice(0, 3).map((product) => (
+              <ProductCard key={product.slug} product={product} />
+            ))}
+          </div>
+          <p className="mt-9 text-center text-xs text-[#85897F]">
+            مصممة لتُطبع على ورق A4 وتُستخدم كل يوم.
+          </p>
         </div>
       </section>
     </main>
