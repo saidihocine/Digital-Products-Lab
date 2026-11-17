@@ -23,7 +23,7 @@
     "@types/react": "^18.3.11",
     "@types/react-dom": "^18.3.1",
     "autoprefixer": "^10.6.2",
-    "eslint": "^8.57.1",
+    "eslint": "^10.15.0",
     "eslint-config-next": "^14.2.15",
     "husky": "^9.1.6",
     "lint-staged": "^15.2.10",
