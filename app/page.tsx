@@ -1,37 +1,13 @@
-import Link from 'next/link';
-import { ArrowLeft, Check, Leaf } from 'lucide-react';
+import { ArrowLeft, Check } from 'lucide-react';
 import { HERO_IMAGE, PRODUCTS } from '@/data/products';
 import { ProductCard } from '@/components/ProductCard';
 
 export default function HomePage() {
   return (
     <main
-      dir="rtl"
+      id="top"
       className="no-print min-h-screen bg-[#F9F8F5] text-[#252923]"
     >
-      <header className="border-b border-[#E8E7E0]">
-        <nav
-          className="mx-auto flex max-w-7xl items-center justify-between px-5 py-5 sm:px-8"
-          aria-label="التنقل الرئيسي"
-        >
-          <Link
-            href="/"
-            className="flex items-center gap-2.5 text-sm font-semibold tracking-tight"
-          >
-            <span className="flex h-9 w-9 items-center justify-center rounded-full bg-[#E9EDE5] text-[#52634F]">
-              <Leaf className="h-4 w-4" />
-            </span>
-            مساحة ورق
-          </Link>
-          <a
-            href="#products"
-            className="text-sm text-[#686D64] transition-colors hover:text-[#252923]"
-          >
-            تصفّح القوالب <span aria-hidden="true">←</span>
-          </a>
-        </nav>
-      </header>
-
       <section className="mx-auto grid max-w-7xl items-center gap-12 px-5 pb-20 pt-12 sm:px-8 sm:pb-28 sm:pt-16 lg:grid-cols-2 lg:gap-20 lg:py-24">
         <div className="max-w-xl">
           <p className="inline-flex items-center gap-2 rounded-full border border-[#E1E5DB] bg-white/70 px-3.5 py-2 text-xs font-medium text-[#65715F]">

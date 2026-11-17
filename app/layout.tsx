@@ -1,5 +1,7 @@
 import type { Metadata } from 'next';
 import { IBM_Plex_Sans_Arabic } from 'next/font/google';
+import { Footer } from '@/components/Footer';
+import { Header } from '@/components/Header';
 import './globals.css';
 
 const font = IBM_Plex_Sans_Arabic({
@@ -23,7 +25,9 @@ export default function RootLayout({
   return (
     <html lang="ar" dir="rtl" className={font.variable}>
       <body className="bg-paper font-sans text-ink antialiased">
+        <Header />
         {children}
+        <Footer />
       </body>
     </html>
   );
