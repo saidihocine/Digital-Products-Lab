@@ -1,0 +1,142 @@
+import Link from 'next/link';
+import { ArrowLeft } from 'lucide-react';
+import { HERO_IMAGE, PRODUCTS } from '@/data/products';
+import { ProductCard } from '@/components/ProductCard';
+import { EmailSubscription } from '@/components/EmailSubscription';
+
+/**
+ * الصفحة الرئيسية لمشروع Digital-Products-Lab.
+ * تعرض القسم الافتتاحي الهادئ، القوالب الثلاثة، معايير الطباعة، وقسم الاشتراك البريدي.
+ */
+export default function HomePage() {
+  return (
+    <main dir="rtl" className="no-print bg-[#F8F7F4] text-[#1C1C1A]">
+      {/* القسم الافتتاحي الهادئ */}
+      <section className="border-b border-[#E5E2D9]">
+        <div className="mx-auto grid max-w-[1200px] grid-cols-1 items-stretch gap-12 px-6 py-16 lg:grid-cols-12 lg:gap-16 lg:py-24">
+          <div className="flex flex-col justify-center lg:col-span-6">
+            <p className="text-xs font-medium tracking-wide text-[#78756C]">
+              مختبر الأدوات الورقية · مقاس A4 قياسي · 300 DPI
+            </p>
+
+            <h1 className="mt-5 text-3xl font-semibold leading-[1.38] tracking-tight text-[#1C1C1A] sm:text-4xl lg:text-[2.85rem]">
+              تنظيم هادئ على ورق حقيقي، بعيداً عن ضجيج الشاشات.
+            </h1>
+
+            <p className="mt-6 max-w-lg text-base leading-[1.9] text-[#575650]">
+              ثلاثة قوالب رقمية مصممة بعناية لتمنح يومك وأسبوعك وعاداتك وضوحاً بصرياً مريحاً للعين، ومعايرة للطباعة المنزلية بدقة عالية وتوفير للحبر.
+            </p>
+
+            <div className="mt-10 flex flex-wrap items-center gap-5">
+              <a
+                href="#products"
+                className="inline-flex min-h-[46px] items-center gap-2.5 whitespace-nowrap rounded-lg border border-[#1C1C1A] bg-[#1C1C1A] px-6 py-3 text-sm font-medium text-[#FAF9F6] transition-colors duration-200 hover:bg-[#2F2F2B] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#1C1C1A]"
+              >
+                <span>استعرض القوالب الثلاثة</span>
+                <ArrowLeft className="h-4 w-4 shrink-0" />
+              </a>
+
+              <Link
+                href="/printing-guide"
+                className="inline-flex min-h-[46px] items-center whitespace-nowrap px-2 py-2 text-sm font-medium text-[#575650] underline decoration-[#C7C2B6] underline-offset-8 transition-colors hover:text-[#1C1C1A] hover:decoration-[#1C1C1A]"
+              >
+                تعليمات الطباعة المنزلية
+              </Link>
+            </div>
+          </div>
+
+          <div className="lg:col-span-6">
+            <div className="relative aspect-[16/11] w-full overflow-hidden rounded-2xl border border-[#E5E2D9] bg-[#EFECE5] shadow-[0_28px_64px_-28px_rgba(28,28,26,0.18)] lg:h-full lg:min-h-[400px]">
+              <img
+                src={HERO_IMAGE}
+                alt="مكتب هادئ يضم دفاتر تخطيط وأوراق ملاحظات منظمة"
+                referrerPolicy="no-referrer"
+                className="h-full w-full object-cover"
+              />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* قسم المنتجات الثلاثة */}
+      <section id="products" className="mx-auto max-w-[1200px] px-6 py-24 lg:py-28">
+        <div className="flex flex-col justify-between gap-4 border-b border-[#E5E2D9] pb-8 md:flex-row md:items-end">
+          <div>
+            <p className="text-xs font-medium text-[#78756C]">المجموعة المختارة</p>
+            <h2 className="mt-2 text-2xl font-semibold tracking-tight text-[#1C1C1A] sm:text-3xl">
+              ثلاثة قوالب لكل ما تحتاجه يومياً
+            </h2>
+            <p className="mt-3 max-w-xl text-sm leading-relaxed text-[#575650]">
+              اختر القالب المناسب لمعاينة تصميم الورقة الكامل، أو تحميل نسخة PDF جاهزة للطباعة الفورية.
+            </p>
+          </div>
+          <p className="shrink-0 font-mono text-xs tabular-nums text-[#78756C]">
+            03 قوالب · A4
+          </p>
+        </div>
+
+        <div className="mt-12 grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3 lg:gap-10">
+          {PRODUCTS.map((product) => (
+            <ProductCard key={product.slug} product={product} />
+          ))}
+        </div>
+      </section>
+
+      {/* قسم معايير الجودة والطباعة */}
+      <section className="border-t border-[#E5E2D9] bg-white">
+        <div className="mx-auto max-w-[1200px] px-6 py-20 lg:py-24">
+          <div className="grid grid-cols-1 gap-12 lg:grid-cols-12">
+            <div className="lg:col-span-4">
+              <h2 className="text-2xl font-semibold tracking-tight text-[#1C1C1A] sm:text-3xl">
+                مصممة للورق الحقيقي
+              </h2>
+              <p className="mt-3 text-sm leading-[1.85] text-[#575650]">
+                كل ملف يخضع لمراجعة دقيقة للهوامش وسمك الخطوط قبل النشر لضمان مظهر مطبوع نظيف على أي طابعة منزلية أو مكتبية.
+              </p>
+              <Link
+                href="/printing-guide"
+                className="mt-6 inline-flex items-center gap-2 text-sm font-medium text-[#1C1C1A] underline decoration-[#C7C2B6] underline-offset-8 transition-colors hover:decoration-[#1C1C1A]"
+              >
+                <span>قراءة تعليمات الطباعة الكاملة</span>
+                <ArrowLeft className="h-4 w-4 shrink-0" />
+              </Link>
+            </div>
+
+            <div className="grid grid-cols-1 gap-8 sm:grid-cols-3 lg:col-span-8">
+              <div className="border-t border-[#E5E2D9] pt-5">
+                <p className="font-mono text-xs tabular-nums text-[#78756C]">01</p>
+                <h3 className="mt-2.5 text-base font-semibold text-[#1C1C1A]">مقاس A4 مضبوط</h3>
+                <p className="mt-2 text-sm leading-relaxed text-[#575650]">
+                  أبعاد قياسية 210 × 297 مم مع هوامش أمان 15 مم تسمح بالتخريم أو الحفظ في الملفات الحلقية دون قص النصوص.
+                </p>
+              </div>
+
+              <div className="border-t border-[#E5E2D9] pt-5">
+                <p className="font-mono text-xs tabular-nums text-[#78756C]">02</p>
+                <h3 className="mt-2.5 text-base font-semibold text-[#1C1C1A]">
+                  تدرجات رمادية موفرة للحبر
+                </h3>
+                <p className="mt-2 text-sm leading-relaxed text-[#575650]">
+                  استغنينا عن الخلفيات الداكنة والزخارف الثقيلة لصالح خطوط شعرية دقيقة مريحة للعين ولخراطيش الحبر.
+                </p>
+              </div>
+
+              <div className="border-t border-[#E5E2D9] pt-5">
+                <p className="font-mono text-xs tabular-nums text-[#78756C]">03</p>
+                <h3 className="mt-2.5 text-base font-semibold text-[#1C1C1A]">
+                  جاهزية فورية للطباعة
+                </h3>
+                <p className="mt-2 text-sm leading-relaxed text-[#575650]">
+                  حمّل ملف PDF بدقة طباعة عالية أو اطبع الورقة مباشرة خلال ثوانٍ دون الحاجة لتعديل الإعدادات.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* قسم الاشتراك البريدي */}
+      <EmailSubscription />
+    </main>
+  );
+}
